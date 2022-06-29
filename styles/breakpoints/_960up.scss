@@ -1,0 +1,55 @@
+.header {
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  z-index: 100;
+
+  &::before {
+      content: "";
+      position: absolute;
+      background: #4d4d4d;
+      height: 1px;
+      width: 100%;
+      top: 60%;
+  }
+}
+
+.hd-info {
+  font-size: 18px;
+
+  &__right {
+    display: flex;
+  }
+
+  &__box1 {
+    line-height: 2em;
+  }
+
+  &__box2 {
+    margin-left: 10px;
+  }
+}
+
+.swiper {
+  height: 100vh;;
+}
+
+.swiper-slide {
+  &__title {
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% + 20px));
+    font-size: 25px;
+  }
+}
+
+
+.footer {
+  &__inner {
+    max-width: 1000px;
+  }
+
+  & li {
+    line-height: 1.5;
+  }
+}
+

@@ -1,0 +1,102 @@
+#content {
+  // overflow: hidden;
+  position: relative;
+  table-layout: fixed;
+}
+
+.swiper {
+  position: relative;
+  height: 86vh;
+  width: 100%;
+  // max-height: 300px; //最大の高さ
+  // min-height: 250px; //最小の高さ
+}
+  
+.swiper-slide {
+    position: relative;
+    text-align: center;
+    line-height: 1;
+    display: flex;
+    align-items: flex-start; //画像の高さを統一させない
+    justify-content: center; //左右の中央揃え
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
+
+    &__title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, calc(-50% + 20px));
+      color: white;
+      font-size: 25px;
+      opacity: 0;
+      transition: opacity 0.3s ease 1s, transform 0.3s ease 1s;
+      z-index: 200;
+    }     
+
+    & > img {
+      width: 100vw;
+      height: 100%;
+      // max-width: 100%;
+      object-fit: cover;
+      transform: scale(1.3);
+      transition: transform 1.8s ease;
+    }
+
+    &-active {
+      & > img {
+        transform: none;
+      }
+
+      & .swiper-slide__title {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+}
+
+.swiper-footer {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    height: 70px;
+    width: 20px;
+    overflow: hidden;
+    z-index: 100;
+
+    &__downarrow {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 6px;
+      @include animation(
+        $name: kf-arrow-anime,
+        $iteration-count: infinite,
+        $duration: 1.6s,
+        $timing-function: linear,
+        )
+    }
+
+    &__scrolltext {
+      position: absolute;
+      transform: rotate(90deg);
+      font-size: 1.1em;
+      color: rgba(255, 255, 255, 0.7);
+      left: -13px;
+      top: 14px;
+    }
+}
+
+@keyframes kf-arrow-anime {
+  0%, 
+  50%,
+  100% {
+    transform: translateY(-10%);
+  }
+  30% {
+    transform: none;
+  }
+}
+
